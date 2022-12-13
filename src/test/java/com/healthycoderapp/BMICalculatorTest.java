@@ -1,6 +1,7 @@
 package com.healthycoderapp;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,4 +32,17 @@ public class BMICalculatorTest {
         //then
         assertFalse(recommended);
     }
+
+// test if throws exception
+
+    @Test
+    void should_ThrowArithmeticException_When_HeightIsZero() {
+        //given
+        double weight = 50;
+        double height = 0.0;
+
+        Executable executable = () -> BMICalculator.isDietRecommended(weight, height);
+        assertThrows(ArithmeticException.class, executable);
+    }
+
 }
