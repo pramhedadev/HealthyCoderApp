@@ -3,6 +3,9 @@ package com.healthycoderapp;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BMICalculatorTest {
@@ -45,4 +48,12 @@ public class BMICalculatorTest {
         assertThrows(ArithmeticException.class, executable);
     }
 
+    @Test
+    void should_ReturnCoderWithWorstBMI_When_CoderListNotEmpty(){
+        // given
+        List<Coder> coder = new ArrayList<>();
+        //when
+
+        //then
+    }
 }
