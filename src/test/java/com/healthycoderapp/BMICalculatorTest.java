@@ -49,11 +49,32 @@ public class BMICalculatorTest {
     }
 
     @Test
-    void should_ReturnCoderWithWorstBMI_When_CoderListNotEmpty(){
+    void should_ReturnCoderWithWorstBMI_When_CoderListNotEmpty() {
         // given
         List<Coder> coder = new ArrayList<>();
+        coder.add(new Coder(1.80, 60.0));
+        coder.add(new Coder(1.82, 98.0));
+        coder.add(new Coder(1.80, 64.7));
+
         //when
+        Coder coderWorstBMI = BMICalculatorTest.findCoerWithWorstBMI(coder);
 
         //then
+        asserAll(
+                () -> assertEquals(1.82, coderWorstBMI.getHeight), // comparing the height
+                () -> assertEquals(98.0, coderWorstBMI.getWeight)
+        )
+    }
+
+    @Test
+    void should_ReturnNullCoderWithWorstBMI_When_CoderListIsEmpty() {
+        // given
+        List<Coder> coder = new ArrayList<>();
+
+        //when
+        Coder coderWorstBMI = BMICalculatorTest.findCoerWithWorstBMI(coder);
+
+        //then
+        AssertNull(coderWorstBMI)
     }
 }
