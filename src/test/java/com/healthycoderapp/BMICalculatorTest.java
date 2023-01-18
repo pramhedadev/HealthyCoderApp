@@ -70,11 +70,15 @@ public class BMICalculatorTest {
     void should_ReturnNullCoderWithWorstBMI_When_CoderListIsEmpty() {
         // given
         List<Coder> coder = new ArrayList<>();
+        coder.add(new coder(1.80, 60.0));
+        coder.add(new coder(1.82, 98.0));
+        coder.add(new coder(1.80, 64.7));
 
+        double[] expectedValue = {18.52, 29.59, 19.53}
         //when
-        Coder coderWorstBMI = BMICalculatorTest.findCoerWithWorstBMI(coder);
+        double[] bmiScores = BMICalculator.getBMIScores(coder);
 
         //then
-        AssertNull(coderWorstBMI)
+    assertArrayEquals(expectedValue, bmiScores);
     }
 }
